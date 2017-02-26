@@ -15,7 +15,7 @@ class InfoHandler(Resource):
     def get(self):
         retval = {}
         retval['status'] = 'SUCCESS'
-        retval['method'] = 'POST'
+        retval['method'] = 'GET'
 
         return retval, 200
 

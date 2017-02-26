@@ -6,7 +6,7 @@ app.config.from_object('config')
 
 @app.route("/")
 def index():
-    return "Index"
+    return "Index sample at lesson2"
 
 
 @app.route("/hello")

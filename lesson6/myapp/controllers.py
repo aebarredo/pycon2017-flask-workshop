@@ -15,6 +15,9 @@ class InfoHandler(Resource):
         self.__session = Session()
         self.__reqparse = reqparse.RequestParser()
 
+    # def __del__(self):
+    #     pass
+        
     def post(self):
         retval = {}
         retval['status'] = 'SUCCESS'
@@ -29,15 +32,15 @@ class InfoHandler(Resource):
 
         return retval, 200
 
-    @marshal_with(info_fields, envelope='data')
+    # @marshal_with(info_fields, envelope='data')
     def get(self, info_id=None):
         info = Info(self.__session)
 
         info_details = info.get_info(info_id)
 
-        # ret = {}
-        # ret['status'] = 'SUCCESS'
-        # ret['data'] = marshal(info_details, info_fields)
+        ret = {}
+        ret['status'] = 'SUCCESS'
+        ret['data'] = marshal(info_details, info_fields)
 
-        return info_details, 200
-        # return ret, 200
+        # return info_details, 200
+        return ret, 200
